@@ -1,11 +1,23 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+             app: './src/index.js',
+             print: './src/print.js'
+    },
+    plugins: [
+        new CleanWebpackPlugin(['dist']),
+        new HtmlWebpackPlugin({
+            title: 'Crypto Api'
+        })
+    ],
     output: {
-        filename: 'bundle.js'
+        filename: '[name].bundle.js'
     },
     devServer: {
         contentBase: './dist'
-      },
+    },
     module: {
         rules: [
             {
