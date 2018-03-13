@@ -3,8 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-             app: './src/index.js',
-             print: './src/print.js'
+        app: './src/index.js',
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
@@ -21,18 +20,18 @@ module.exports = {
     module: {
         rules: [
             {
-            test:/\.css$/,
-            use:[
-                'style-loader',
-                'css-loader'
-            ]
-        },
-    {
-        test:/\.(png|svg|jpg|gif)$/,
-        use:[
-            'file-loader'
-        ]
-       }]
-},
-    
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader'
+                ]
+            }]
+    },
+
 };
