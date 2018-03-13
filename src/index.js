@@ -1,17 +1,19 @@
 import './style.css';
 import Icon from './favicon.jpg';
-  function component() {
-    var element = document.createElement('div');
+import printMe from './print.js';
 
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    element.classList.add('hello');
+function component() {
+  const element = document.createElement('div');
+  const btn = document.createElement('button');
 
-      var myIcon = new Image();
-       myIcon.src = Icon;
-    
-       element.appendChild(myIcon);
+  element.innerHTML = (['Hello', 'webpack'].join(' '));
 
-    return element;
-  }
+  btn.innerHTML = 'Click me and check the console!';
+  btn.onclick = printMe;
 
-  document.body.appendChild(component());
+  element.appendChild(btn);
+
+  return element;
+}
+
+document.body.appendChild(component());
