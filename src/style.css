@@ -1,4 +1,5 @@
-.hello {
-    color: red;
+
+html {
     background: url('./favicon.jpg');
-  }
+  
+};
