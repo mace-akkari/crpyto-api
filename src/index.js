@@ -7,8 +7,13 @@ fetch('https://api.coinbase.com/v2/exchange-rates?currency=BTC')
   .then((response)=> {
     if(response.ok) {
       return response.json();
+    }else {
+      throw new Error('Error')
     }
   })
   .then((data)=>{
     console.log(data)
-  });
+  })
+  .catch((error)=> {
+    console.error(error)
+  })
