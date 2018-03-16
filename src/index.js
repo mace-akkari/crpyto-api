@@ -1,19 +1,14 @@
 import './style.css';
 import Icon from './favicon.jpg';
 
+// https://developers.coinbase.com/api/v2#exchange-rates
 
-function component() {
-  const element = document.createElement('div');
-  const btn = document.createElement('button');
-
-  element.innerHTML = (['Hello', 'webpack'].join(' '));
-
-  btn.innerHTML = 'Click me and check the console!';
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
-
-  return element;
-}
-
-document.body.appendChild(component());
+fetch('https://api.coinbase.com/v2/exchange-rates?currency=BTC')
+  .then((response)=> {
+    if(response.ok) {
+      return response.json();
+    }
+  })
+  .then((data)=>{
+    console.log(data)
+  });
