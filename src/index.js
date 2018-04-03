@@ -1,7 +1,8 @@
 import './style.css';
 import Icon from './favicon.jpg';
 
-fetch(getExchangeRateURL('BTC'))
+function fetchAPI(coin) {
+fetch(getExchangeRateURL()+coin)
   .then((response)=> {
     if(response.ok) {
       return response.json();
@@ -23,7 +24,8 @@ fetch(getExchangeRateURL('BTC'))
   .catch((error)=> {
     console.error(error,'OOOOPS something went wrong!!')
   })
-
+}
+  // =========================================================
   //Table Data
   // =========================================================
   function createTable(rates) {
@@ -39,10 +41,10 @@ fetch(getExchangeRateURL('BTC'))
          cell2.textContent = rates[i].price
       }
 
-    tableData.style.width  = '100px' ;
+    tableData.style.width  = '100px';
     tableData.style.border = '1px solid black';
 
-    div1.appendChild(tableData)
+    div1.appendChild(tableData);
     document.body.appendChild(div1);
   }
 
@@ -60,7 +62,7 @@ bitcoinButton.id = "btcButton"
 bitcoinButton.innerHTML = "BitCoin"
 bitcoinButton.addEventListener ("click", () => {
   alert(`BitCoin is your chosen Cypto`);
-  //do somethin here
+  fetchAPI("BTC")
 });
 
 currencyDiv.appendChild(bitcoinButton)
@@ -73,7 +75,7 @@ function ltcButton() {
   ltcButton.innerHTML = "LiteCoin"
   ltcButton.addEventListener ("click", () => {
     alert(`LiteCoin is your chosen Cypto`);
-    //do somethin here
+    fetchAPI("LTC")
   });
   currencyDiv.appendChild(ltcButton)
 }
@@ -85,13 +87,12 @@ function ethButton() {
   ethButton.innerHTML = "Ethereum"
   ethButton.addEventListener ("click", () => {
     alert(`Ethereum is your chosen Cypto`);
-    //do somethin here
+    fetchAPI("ETH")
   });
   currencyDiv.appendChild(ethButton)
 }
 ethButton()
 //===============================================================
-
 //Refresh button
 //===============================================================
 
@@ -128,6 +129,7 @@ function pageRefresh() {
     return exchangeData.data.rates;
   }
 
-  function getExchangeRateURL(currency) {
-    return `https://api.coinbase.com/v2/exchange-rates?currency=${currency}`    
+  function getExchangeRateURL() {
+    const baseUrl = 'https://api.coinbase.com/v2/exchange-rates?currency='
+    return baseUrl 
   }
