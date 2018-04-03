@@ -48,46 +48,44 @@ fetch(getExchangeRateURL('BTC'))
 
 //===============================================================
 
-//New currency button
+//New currency buttons
 //===============================================================
 
-function createButton() {
-const div2 = document.createElement("DIV");
-div2.id = "currencyButton";
+function btcButton() {
+const bitcoinDiv = document.createElement("DIV");
+bitcoinDiv.id = "btcButton";
 
-const currencyRefresh = document.createElement("INPUT");
-currencyRefresh.setAttribute("value", " Enter Currency Code");
-currencyRefresh.setAttribute("onfocus", "this.value=''");
-currencyRefresh.addEventListener ("click", () => {
+const bitcoinButton = document.createElement("BUTTON");
+bitcoinButton.innerHTML = "BTC"
+bitcoinButton.addEventListener ("click", () => {
+  alert(`BitCoin is your chosen Cypto`);
   //do somethin here
-  alert("wow");
 });
-div2.appendChild(currencyRefresh)
 
-
-document.body.appendChild(div2);
-
+bitcoinDiv.appendChild(bitcoinButton)
+document.body.appendChild(bitcoinDiv);
 }
-createButton()
+btcButton()
 //===============================================================
 
 //Refresh button
 //===============================================================
 
 function pageRefresh() {
-  const div3 = document.createElement("DIV");
-  div3.id = "refreshButton";
+  const divx = document.createElement("DIV");
+  divx.id = "refreshButton";
   
   const refreshButton = document.createElement("BUTTON");
-  refreshButton.setAttribute("value", "Refresh Page");
+  refreshButton.id = "refButton"
+  refreshButton.innerHTML = "Refresh Page";
   refreshButton.addEventListener ("click", () => {
     onclick = window.location.href=window.location.href
     alert("You have refreshed for the latest exchange rate!");
   });
-  div3.appendChild(refreshButton)
+  divx.appendChild(refreshButton)
   
   
-  document.body.appendChild(div3);
+  document.body.appendChild(divx);
   
   }
   pageRefresh()
