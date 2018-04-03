@@ -47,25 +47,49 @@ fetch(getExchangeRateURL('BTC'))
   }
 
 //===============================================================
-
 //New currency buttons
 //===============================================================
 
-function btcButton() {
-const bitcoinDiv = document.createElement("DIV");
-bitcoinDiv.id = "btcButton";
+let currencyDiv = document.createElement("DIV");
+currencyDiv.id = "currencyDiv";
+document.body.appendChild(currencyDiv);
 
+function btcButton() {
 const bitcoinButton = document.createElement("BUTTON");
-bitcoinButton.innerHTML = "BTC"
+bitcoinButton.id = "btcButton"
+bitcoinButton.innerHTML = "BitCoin"
 bitcoinButton.addEventListener ("click", () => {
   alert(`BitCoin is your chosen Cypto`);
   //do somethin here
 });
 
-bitcoinDiv.appendChild(bitcoinButton)
-document.body.appendChild(bitcoinDiv);
+currencyDiv.appendChild(bitcoinButton)
 }
 btcButton()
+
+function ltcButton() {
+  const ltcButton = document.createElement("BUTTON");
+  ltcButton.id = "ltcButton"
+  ltcButton.innerHTML = "LiteCoin"
+  ltcButton.addEventListener ("click", () => {
+    alert(`LiteCoin is your chosen Cypto`);
+    //do somethin here
+  });
+  currencyDiv.appendChild(ltcButton)
+}
+ltcButton()
+
+function ethButton() {
+  const ethButton = document.createElement("BUTTON");
+  ethButton.id = "ltcButton"
+  ethButton.innerHTML = "Ethereum"
+  ethButton.addEventListener ("click", () => {
+    alert(`Ethereum is your chosen Cypto`);
+    //do somethin here
+  });
+  currencyDiv.appendChild(ethButton)
+}
+ethButton()
 //===============================================================
 
 //Refresh button
