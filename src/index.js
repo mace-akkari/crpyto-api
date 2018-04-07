@@ -29,6 +29,7 @@ fetch(getExchangeRateURL()+coin)
   //Table Data
   // =========================================================
   function createTable(rates) {
+
     const originalDiv = document.querySelector("#currencyTable");
     const newDiv = document.createElement("DIV");
     newDiv.id = "currencyTable";
@@ -92,3 +93,5 @@ createCurrencyButton("ethButton", "Ethereum", "ETH");
     const baseUrl = 'https://api.coinbase.com/v2/exchange-rates?currency='
     return baseUrl 
   }
+
+  fetchAPI('BTC');
