@@ -29,8 +29,13 @@ fetch(getExchangeRateURL()+coin)
   //Table Data
   // =========================================================
   function createTable(rates) {
-    const div1 = document.createElement("DIV");
-    div1.id = "currencyTable";
+    const originalDiv = document.querySelector("#currencyTable");
+    const newDiv = document.createElement("DIV");
+    newDiv.id = "currencyTable";
+
+    if(originalDiv !== null) {
+      document.body.removeChild(originalDiv);
+    }
 
     const tableData = document.createElement("TABLE" );
       for(let i = 0; i < rates.length; i++){
@@ -44,8 +49,8 @@ fetch(getExchangeRateURL()+coin)
     tableData.style.width  = '100px';
     tableData.style.border = '1px solid black';
 
-    div1.appendChild(tableData);
-    document.body.appendChild(div1);
+    newDiv.appendChild(tableData);
+    document.body.appendChild(newDiv);
   }
 
 //===============================================================
@@ -56,65 +61,19 @@ let currencyDiv = document.createElement("DIV");
 currencyDiv.id = "currencyDiv";
 document.body.appendChild(currencyDiv);
 
-function btcButton() {
-const bitcoinButton = document.createElement("BUTTON");
-bitcoinButton.id = "btcButton"
-bitcoinButton.innerHTML = "BitCoin"
-bitcoinButton.addEventListener ("click", () => {
-  alert(`BitCoin is your chosen Cypto`);
-  fetchAPI("BTC")
-});
-
-currencyDiv.appendChild(bitcoinButton)
-}
-btcButton()
-
-function ltcButton() {
-  const ltcButton = document.createElement("BUTTON");
-  ltcButton.id = "ltcButton"
-  ltcButton.innerHTML = "LiteCoin"
-  ltcButton.addEventListener ("click", () => {
-    alert(`LiteCoin is your chosen Cypto`);
-    fetchAPI("LTC")
+function createCurrencyButton(id, label, code) {
+  const button = document.createElement("BUTTON");
+  button.id = id; 
+  button.textContent = label; 
+  button.addEventListener("click", () => {
+    fetchAPI(code)
   });
-  currencyDiv.appendChild(ltcButton)
-}
-ltcButton()
+  currencyDiv.appendChild(button)
+};
 
-function ethButton() {
-  const ethButton = document.createElement("BUTTON");
-  ethButton.id = "ltcButton"
-  ethButton.innerHTML = "Ethereum"
-  ethButton.addEventListener ("click", () => {
-    alert(`Ethereum is your chosen Cypto`);
-    fetchAPI("ETH")
-  });
-  currencyDiv.appendChild(ethButton)
-}
-ethButton()
-//===============================================================
-//Refresh button
-//===============================================================
-
-function pageRefresh() {
-  const divx = document.createElement("DIV");
-  divx.id = "refreshButton";
-  
-  const refreshButton = document.createElement("BUTTON");
-  refreshButton.id = "refButton"
-  refreshButton.innerHTML = "Refresh Page";
-  refreshButton.addEventListener ("click", () => {
-    onclick = window.location.href=window.location.href
-    alert("You have refreshed for the latest exchange rate!");
-  });
-  divx.appendChild(refreshButton)
-  
-  
-  document.body.appendChild(divx);
-  
-  }
-  pageRefresh()
-
+createCurrencyButton("btcButton", "BitCoin", "BTC");
+createCurrencyButton("ltcButton", "LiteCoin", "LTC");
+createCurrencyButton("ethButton", "Ethereum", "ETH");
 
 //===============================================================
 
