@@ -1,5 +1,22 @@
-
 html {
     background: url('./favicon.jpg');
-  
-};
+}
+
+.buttonClass{
+    background-color: lightgrey;
+    margin: 20px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    border-style: outset;
+    font-size: 20px;
+    font: bold 15px arial, sans-serif;
+}
+
+.buttonClass:hover{
+    background-color: gold;
+}
+
+.active:active{
+    background-color: lightblue;
+}
