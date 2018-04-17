@@ -39,6 +39,7 @@ fetch(getExchangeRateURL()+coin)
     }
 
     const tableData = document.createElement("TABLE" );
+    
       for(let i = 0; i < rates.length; i++){
          let trow = tableData.insertRow();
          let cell1 = trow.insertCell(0) // calling with an argument = index 0
@@ -66,6 +67,7 @@ function createCurrencyButton(id, label, code) {
   const button = document.createElement("BUTTON");
   button.id = id; 
   button.textContent = label; 
+  button.classList.add("buttonClass", "active")
   button.addEventListener("click", () => {
     fetchAPI(code)
   });
@@ -93,5 +95,5 @@ createCurrencyButton("ethButton", "Ethereum", "ETH");
     const baseUrl = 'https://api.coinbase.com/v2/exchange-rates?currency='
     return baseUrl 
   }
-
+  // INIT 
   fetchAPI('BTC');
