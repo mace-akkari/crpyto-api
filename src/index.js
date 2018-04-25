@@ -71,7 +71,7 @@ function createCurrencyButton(id, label, code) {
   button.id = id;
   button.textContent = label;
   button.classList.add(buttonClass);
-
+  
   const eventHandler = async (e) => {
     const currentTarget = e.currentTarget;
     await fetchAPI(code);
@@ -83,8 +83,8 @@ function createCurrencyButton(id, label, code) {
 };
 
 createCurrencyButton("btcButton", "BitCoin", "BTC");
-createCurrencyButton("ltcButton", "LiteCoin", "LTC");
 createCurrencyButton("ethButton", "Ethereum", "ETH");
+createCurrencyButton("ltcButton", "LiteCoin", "LTC");
 
 //===============================================================
 
