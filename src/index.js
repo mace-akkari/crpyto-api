@@ -64,12 +64,13 @@ function changeButton(target, buttonClass) {
   target.classList.add(activeClass);
 }
 
-function createCurrencyButton(id, label, code) {
+function createCurrencyButton(id, label, code, logo) {
   const button = document.createElement("BUTTON");
   const buttonClass = "buttonClass";
 
   button.id = id;
   button.textContent = label;
+  
   button.classList.add(buttonClass);
   
   const eventHandler = async (e) => {
@@ -80,9 +81,10 @@ function createCurrencyButton(id, label, code) {
 
   button.addEventListener("click", eventHandler);
   currencyDiv.appendChild(button)
+  
 };
 
-createCurrencyButton("btcButton", "BitCoin", "BTC");
+createCurrencyButton("btcButton", "BitCoin", "BTC", "src = '../images/bitCoin.png'");
 createCurrencyButton("ethButton", "Ethereum", "ETH");
 createCurrencyButton("ltcButton", "LiteCoin", "LTC");
 
