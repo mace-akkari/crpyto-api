@@ -3,6 +3,7 @@ html {
 }
 
 .buttonClass{
+    outline: none;
     background-color: lightgrey;
     margin: 20px;
     border-radius: 50%;
@@ -17,6 +18,6 @@ html {
     background-color: gold;
 }
 
-.active:active{
+.active{
     background-color: lightblue;
 }
