@@ -1,5 +1,6 @@
 html {
-    background: url('./favicon.jpg');
+    background-image: url('./favicon.jpg');
+    background-repeat: no-repeat;
 }
 
 .buttonClass{
