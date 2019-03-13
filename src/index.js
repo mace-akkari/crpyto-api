@@ -1,5 +1,4 @@
 import './style.css';
-import Icon from './favicon.jpg';
 
 async function fetchAPI(coin) {
   const response = await fetch(getExchangeRateURL() + coin);
