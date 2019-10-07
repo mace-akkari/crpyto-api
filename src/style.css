@@ -1,6 +1,9 @@
 html {
-    background-image: url('./favicon.jpg');
-    background-repeat: no-repeat;
+    text-align: center;
+}
+.container {
+    border: 6px solid black;
+    text-align: center
 }
 
 .buttonClass{
@@ -17,6 +20,10 @@ html {
 
 .buttonClass:hover{
     background-color: gold;
+}
+
+table {
+    display: inline-block;
 }
 
 .active{
