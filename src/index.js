@@ -63,7 +63,7 @@ function changeButton(target, buttonClass) {
   target.classList.add(activeClass);
 }
 
-function createCurrencyButton(id, label, code, logo) {
+function createCurrencyButton(id, label, code) {
   const button = document.createElement("BUTTON");
   const buttonClass = "buttonClass";
 
@@ -83,7 +83,7 @@ function createCurrencyButton(id, label, code, logo) {
   
 };
 
-createCurrencyButton("btcButton", "BitCoin", "BTC", "src = '../images/bitCoin.png'");
+createCurrencyButton("btcButton", "BitCoin", "BTC");
 createCurrencyButton("ethButton", "Ethereum", "ETH");
 createCurrencyButton("ltcButton", "LiteCoin", "LTC");
 
