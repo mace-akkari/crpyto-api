@@ -11,10 +11,10 @@ html {
     background-color: lightgrey;
     margin: 20px;
     border-radius: 50%;
-    width: 30%;
-    height: 300px;
+    width: 100px;
+    height: 100px;
     border-style: outset;
-    font: bold 50px arial, sans-serif;
+    font: bold 15px arial, sans-serif;
 }
 
 .buttonClass:hover{
